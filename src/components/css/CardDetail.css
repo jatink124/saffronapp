@@ -1,0 +1,91 @@
+/* CardDetail.css */
+
+/* Shared styles */
+.flex {
+  display: flex;
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+/* Default styles */
+.text-size-default {
+  font-size: 16px;
+}
+
+/* Medium screen styles (min-width: 768px) */
+@media (min-width: 768px) {
+  .flex-md-row {
+    flex-direction: row;
+  }
+
+  .md\:w-full {
+    width: 100%;
+  }
+
+  .md\:mb-0 {
+    margin-bottom: 0;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0;
+  }
+
+  .md\:mt-4 {
+    margin-top: 1rem; /* Adjust as needed */
+  }
+
+  .md\:p-4 {
+    padding: 1rem; /* Adjust as needed */
+  }
+  
+  .md\:mt-2 {
+    margin-top: 0.5rem; /* Adjust as needed */
+  }
+
+  .md\:ml-2 {
+    margin-left: 0.5rem;
+  }
+
+  /* Adjust text size for medium screens */
+  .text-size-medium {
+    font-size: 18px;
+  }
+}
+
+/* Large screen styles (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .lg\:w-full {
+    width: 100%;
+  }
+
+  .lg\:mb-0 {
+    margin-bottom: 0;
+  }
+
+  .lg\:mt-0 {
+    margin-top: 0;
+  }
+
+  .lg\:mt-4 {
+    margin-top: 1rem; /* Adjust as needed */
+  }
+
+  .lg\:p-4 {
+    padding: 1rem; /* Adjust as needed */
+  }
+
+  .lg\:mt-2 {
+    margin-top: 0.5rem; /* Adjust as needed */
+  }
+
+  .lg\:ml-2 {
+    margin-left: 0.5rem;
+  }
+
+  /* Adjust text size for large screens */
+  .text-size-large {
+    font-size: 20px;
+  }
+}

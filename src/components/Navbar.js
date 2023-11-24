@@ -1,7 +1,7 @@
 // Navbar.js
 
 import React from 'react';
-
+import './css/Navbar.css';
 const Navbar = () => {
   return (
     <nav className="bg-gray-800 p-4">
