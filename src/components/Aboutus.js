@@ -37,8 +37,7 @@ const AboutUs = () => {
     },
   ];
   const saffronStyle = {
-    color: 'saffron', // You can replace 'saffron' with your desired saffron color code
-    fontWeight: 'bold',
+   
   };
 
   return (
