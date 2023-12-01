@@ -7,6 +7,8 @@ import AboutUs from "./components/Aboutus";
 import Contactus from "./components/Contactus";
 import PaymentForm from "./components/PaymentForm";
 import Footer from "./components/Footer";
+import CardDetail from "./components/CardDetail";
+import Home from "./components/Home";
 
 
 function App() {
@@ -15,10 +17,14 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Card/>} />
-          {/* <Route path="/buynow" element={<PaymentForm/>} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/card" element={<Card/>} />
+          <Route path="/card/:id" element={<CardDetail />} />
           <Route path="/aboutus" element={<AboutUs/>} />
-          <Route path="/contactus" element={<Contactus/>} /> */}
+          <Route path="/contactus" element={<Contactus/>} /> 
+           <Route path="/buynow" element={<PaymentForm/>} />
+          
+        
         </Routes>
         <Footer />
       </BrowserRouter>

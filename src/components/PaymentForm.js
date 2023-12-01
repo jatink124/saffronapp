@@ -2,18 +2,23 @@ import React, { useState } from 'react';
 
 const RazorpayForm = () => {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
-  const [showDebitCardDetails, setShowDebitCardDetails] = useState(false);
+  const [showDebitCardDetails, setShowDebitCardDetails] = useState(true);
 
   const handleCheckboxChange = (method) => {
     setSelectedPaymentMethod(method);
-    
+
     // Show Debit Card details when Credit/Debit Card checkbox is selected
-    if (method === 'card') {
-      setShowDebitCardDetails(true);
+    setShowDebitCardDetails(method === 'card');
+
+    // Show textbox when Other UPI Apps checkbox is selected
+    if (method === 'upi') {
+      setShowTextbox(true);
     } else {
-      setShowDebitCardDetails(false);
+      setShowTextbox(false);
     }
   };
+
+  const [showTextbox, setShowTextbox] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +27,7 @@ const RazorpayForm = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto my-16 p-4">
       <h1 className="text-2xl font-bold mb-4">Razorpay Payment Form</h1>
       <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-4">
         {/* Credit/Debit Card */}
@@ -64,31 +69,51 @@ const RazorpayForm = () => {
           </label>
         </div>
 
-     {/* Debit Card details */}
-{showDebitCardDetails && (
-  <div className="col-span-3 mt-4">
-    <label>Card Number:</label>
-    <input
-      type="text"
-      placeholder="Enter card number"
-      /* Add necessary attributes for card number input */
-    />
+        {/* Textbox for Other UPI Apps */}
+        {showTextbox && (
+          <div className="col-span-3 mt-4">
+            <div className="flex flex-col">
+              <label>Enter UPI Details:</label>
+              <input
+                type="text"
+                placeholder="Enter UPI details"
+                /* Add necessary attributes for UPI input */
+              />
+            </div>
+          </div>
+        )}
 
-    <label>Expiry Date:</label>
-    <input
-      type="text"
-      placeholder="MM/YYYY"
-      /* Add necessary attributes for expiry date input */
-    />
+        {/* Debit Card details */}
+        {showDebitCardDetails && (
+          <div className="col-span-3 mt-4">
+            <div className="flex flex-col">
+              <label>Card Number:</label>
+              <input
+                type="text"
+                placeholder="Enter card number"
+                /* Add necessary attributes for card number input */
+              />
+            </div>
 
-    <label>CVV:</label>
-    <input
-      type="text"
-      placeholder="Enter CVV"
-      /* Add necessary attributes for CVV input */
-    />
-  </div>
-)}
+            <div className="flex flex-col">
+              <label>Expiry Date:</label>
+              <input
+                type="text"
+                placeholder="MM/YYYY"
+                /* Add necessary attributes for expiry date input */
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label>CVV:</label>
+              <input
+                type="text"
+                placeholder="Enter CVV"
+                /* Add necessary attributes for CVV input */
+              />
+            </div>
+          </div>
+        )}
 
         {/* Submit Button */}
         <div className="col-span-3 mt-4">
